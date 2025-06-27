@@ -26,38 +26,48 @@ function App() {
           ></img>
         </button>
       </nav>
-      <div className="flex gap-8 flex-col justify-items-center text-center">
-        <div className="relative mt-20 text-center">
-          <div className="bg-amber-100">
-            <img src={frame} className="object-fill w-36"></img>
+      <div className="flex gap-8 flex-col justify-items-center text-center md:text-left">
+        <div className="md:flex md:space-x-4">
+          <div className="flex-col space-y-5 md:w-3/4 ml-8">
+            <div className="relative mt-20 text-center">
+              <div className="justify-self-center md:justify-self-start">
+                <img src={frame} className="object-fill w-36"></img>
+              </div>
+              <p className="absolute block justify-self-center top-4 left-6 text-lg">
+                Hello There!
+              </p>
+            </div>
+            <p className="text-center md:text-left text-4xl md:justify-self-start">
+              My name is Legend and I'm a passionate Web Development
+            </p>
+            <p className="text-gray-400">
+              Proficient in full stack web development with a strong grasp of
+              React.js, Tailwind CSS, and Node.js. Experienced in building
+              responsive UIs, implementing RESTful APIs, and managing state
+              effectively. Skilled in working with SQL databases, JWT
+              authentication, and real-time communication using Socket.io. Adept
+              at collaborative development, version control with Git, and
+              deploying applications on platforms like Vercel and Render.
+            </p>
+            <div className="grid grid-cols-1 md:flex gap-2">
+              <div>
+                <button class="bg-violet-500 hover:bg-violet-600 text-white font-md py-2 px-4 rounded-full">
+                  My Resume
+                </button>
+              </div>
+              <div>
+                <button class="border-violet-500 border-3 text-black hover:bg-violet-500 hover:text-white font-md py-2 px-4 rounded-full">
+                  Hire Me
+                </button>
+              </div>
+            </div>
           </div>
-          <p className="absolute block justify-self-center top-4 left-6 text-lg">
-            Hello There!
-          </p>
+          <img
+            src="https://img.freepik.com/free-vector/code-typing-concept-illustration_114360-4296.jpg?uid=R204064089&ga=GA1.1.37188644.1740345148&semt=ais_items_boosted&w=740"
+            className="mb-10 md:w-2/5"
+          ></img>
         </div>
-        <p className="text-center text-4xl">
-          My name is Legend and I'm a passionate Web Development
-        </p>
-        <p>
-          I'm an undergraduate student at IIT Roorkee, interested in Tech and
-          Product building
-        </p>
-        <div className="grid grid-cols-1 md:flex gap-2">
-          <div>
-            <button class="bg-violet-500 hover:bg-violet-600 text-white font-md py-2 px-4 rounded-full">
-              My Resume
-            </button>
-          </div>
-          <div>
-            <button class="border-violet-500 border-3 text-black hover:bg-violet-500 hover:text-white font-md py-2 px-4 rounded-full">
-              Hire Me
-            </button>
-          </div>
-        </div>
-        <img
-          src="https://img.freepik.com/free-vector/code-typing-concept-illustration_114360-4296.jpg?uid=R204064089&ga=GA1.1.37188644.1740345148&semt=ais_items_boosted&w=740"
-          className="mb-10 md:w-1/3"
-        ></img>
+
         <div className="flex-col md:flex-row justify-items-center space-y-4">
           <h1 className="font-semibold text-4xl mb-6">Services I Provide</h1>
           <div className="flex-row space-y-4 md:flex md:space-x-4 md:ml-8 md:mr-8">
@@ -161,8 +171,8 @@ function App() {
 
           <div className="space-y-4 flex-col md:flex justify-items-center mt-12">
             <h1 className="text-4xl font-semibold mb-6">My Projects</h1>
-            <div className="space-x-4 flex">
-              <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div className="flex space-x-4">
+              <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex">
                 <a href="#">
                   <img
                     class="rounded-t-lg"
