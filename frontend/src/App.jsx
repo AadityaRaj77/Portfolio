@@ -1,33 +1,77 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { Flex, Badge } from "@radix-ui/themes";
 import "./App.css";
 import frame from "./assets/frame.png";
 
 function App() {
+  const homeRef = useRef(null);
+  const servicesRef = useRef(null);
+  const projectRef = useRef(null);
+  const socialsRef = useRef(null);
+
+  const scrolltosection = (ref) => {
+    ref.current?.scrollIntoView({ behaviour: "smooth" });
+  };
+
   return (
     <>
-      <nav className="bg-violet-500 flex py-3 pl-8 items-center justify-between pr-8 md:justify-between md:m-6 md:rounded-full md:pr-3">
-        <h1 className="text-white text-4xl text-center">LeGenD</h1>
-        <ul className="invisible md:visible flex space-x-8 text-xl">
-          <li>Home</li>
-          <li>About</li>
-          <li>Services</li>
-          <li>Projects</li>
+      <nav className="bg-violet-500 flex py-3 pl-8 items-center mx-auto justify-between pr-8 md:justify-between md:m-8 md:rounded-full md:pr-3">
+        <h1 className="text-white text-4xl text-center cursor-pointer">
+          LeGenD
+        </h1>
+        <ul className="invisible md:visible flex space-x-8 text-xl text-white">
+          <li className="cursor-pointer">
+            <button
+              className="cursor-pointer"
+              onClick={() => scrolltosection(homeRef)}
+            >
+              Home
+            </button>
+          </li>
+          <li className="cursor-pointer">
+            <button
+              className="cursor-pointer"
+              onClick={() => scrolltosection(socialsRef)}
+            >
+              About
+            </button>
+          </li>
+          <li className="cursor-pointer">
+            <button
+              className="cursor-pointer"
+              onClick={() => scrolltosection(servicesRef)}
+            >
+              Services
+            </button>
+          </li>
+          <li className="cursor-pointer">
+            <button
+              className="cursor-pointer"
+              onClick={() => scrolltosection(projectRef)}
+            >
+              Projects
+            </button>
+          </li>
         </ul>
-        <div className="invisible md:visible">
-          <button className="invisible md:visible text-xl bg-white rounded-full py-2 px-4 text-center cursor-pointer active:bg-violet-300">
-            Contact
+        <div className="invisible md:visible md:justify-self-end">
+          <button
+            className="invisible md:visible text-xl bg-white rounded-full py-2 px-4 text-center cursor-pointer active:bg-violet-300
+           "
+          >
+            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqTgCdNfQWLwdLtNcvWmqvLTdmhVvptCpfHxkJgMpfrslHrmTmTfJHddncqGDXfnHrnLtL">
+              Contact
+            </a>
+          </button>
+          <button>
+            <img
+              src="https://cdn-icons-png.flaticon.com/128/5358/5358649.png"
+              className="md:hidden invert w-12"
+            ></img>
           </button>
         </div>
-
-        <button>
-          <img
-            src="https://cdn-icons-png.flaticon.com/128/5358/5358649.png"
-            className="md:hidden invert w-12"
-          ></img>
-        </button>
       </nav>
       <div className="flex gap-8 flex-col justify-items-center text-center md:text-left">
-        <div className="md:flex md:space-x-4">
+        <div ref={homeRef} className="md:flex md:space-x-4">
           <div className="flex-col space-y-5 md:w-3/4 ml-8">
             <div className="relative mt-20 text-center">
               <div className="justify-self-center md:justify-self-start">
@@ -68,7 +112,10 @@ function App() {
           ></img>
         </div>
 
-        <div className="flex-col md:flex-row justify-items-center space-y-4">
+        <div
+          ref={servicesRef}
+          className="flex-col md:flex-row justify-items-center space-y-4"
+        >
           <h1 className="font-semibold text-4xl mb-6">Services I Provide</h1>
           <div className="flex-row space-y-4 md:flex md:space-x-4 md:ml-8 md:mr-8">
             <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-violet-600 dark:border-violet-500 basis-1/3">
@@ -168,153 +215,157 @@ function App() {
               </a>
             </div>
           </div>
-
-          <div className="space-y-4 flex-col justify-items-center mt-12">
-            <h1 className="text-4xl font-semibold mb-6">My Projects</h1>
-            <div className="flex flex-col space-y-4 md:flex-row md:space-x-4">
-              <div className="flex flex-col md:flex-row">
-                <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex">
+        </div>
+        <div
+          ref={projectRef}
+          className="space-y-4 flex-col justify-items-center mt-12"
+        >
+          <h1 className="text-4xl font-semibold mb-6">My Projects</h1>
+          <div className="flex flex-col space-y-4 md:flex-row md:space-x-4">
+            <div className="flex flex-col md:flex-row">
+              <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-violet-600 dark:border-violet-700 flex">
+                <a href="#">
+                  <img
+                    class="rounded-t-lg"
+                    src="/docs/images/blog/image-1.jpg"
+                    alt=""
+                  />
+                </a>
+                <div class="p-5">
                   <a href="#">
-                    <img
-                      class="rounded-t-lg"
-                      src="/docs/images/blog/image-1.jpg"
-                      alt=""
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Noteworthy technology acquisitions 2021
+                    </h5>
+                  </a>
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Here are the biggest enterprise technology acquisitions of
+                    2021 so far, in reverse chronological order.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Read more
+                    <svg
+                      class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 14 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-violet-600 dark:border-violet-700">
+              <a href="#">
+                <img
+                  class="rounded-t-lg"
+                  src="/docs/images/blog/image-1.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="p-5">
+                <a href="#">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Noteworthy technology acquisitions 2021
+                  </h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Here are the biggest enterprise technology acquisitions of
+                  2021 so far, in reverse chronological order.
+                </p>
+                <a
+                  href="#"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Read more
+                  <svg
+                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"
                     />
-                  </a>
-                  <div class="p-5">
-                    <a href="#">
-                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Noteworthy technology acquisitions 2021
-                      </h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      Here are the biggest enterprise technology acquisitions of
-                      2021 so far, in reverse chronological order.
-                    </p>
-                    <a
-                      href="#"
-                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                      Read more
-                      <svg
-                        class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 14 10"
-                      >
-                        <path
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M1 5h12m0 0L9 1m4 4L9 9"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                  <img
-                    class="rounded-t-lg"
-                    src="/docs/images/blog/image-1.jpg"
-                    alt=""
-                  />
+                  </svg>
                 </a>
-                <div class="p-5">
-                  <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      Noteworthy technology acquisitions 2021
-                    </h5>
-                  </a>
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Here are the biggest enterprise technology acquisitions of
-                    2021 so far, in reverse chronological order.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Read more
-                    <svg
-                      class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"
-                      />
-                    </svg>
-                  </a>
-                </div>
               </div>
-              <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            </div>
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-violet-600 dark:border-violet-700">
+              <a href="#">
+                <img
+                  class="rounded-t-lg"
+                  src="/docs/images/blog/image-1.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="p-5">
                 <a href="#">
-                  <img
-                    class="rounded-t-lg"
-                    src="/docs/images/blog/image-1.jpg"
-                    alt=""
-                  />
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Noteworthy technology acquisitions 2021
+                  </h5>
                 </a>
-                <div class="p-5">
-                  <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      Noteworthy technology acquisitions 2021
-                    </h5>
-                  </a>
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Here are the biggest enterprise technology acquisitions of
-                    2021 so far, in reverse chronological order.
-                  </p>
-                  <a
-                    href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Here are the biggest enterprise technology acquisitions of
+                  2021 so far, in reverse chronological order.
+                </p>
+                <a
+                  href="#"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Read more
+                  <svg
+                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
                   >
-                    Read more
-                    <svg
-                      class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"
-                      />
-                    </svg>
-                  </a>
-                </div>
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
-          <div className="mt-12 space-y-4 mb-4">
-            <h1 className="text-4xl font-semibold">My Social Links</h1>
-            <div className="flex flex-col space-y-4 md:flex-row md:space-x-4">
-              <div className="text-3xl bg-violet-600 text-white w-full rounded-4xl p-2">
+        </div>
+        <div ref={socialsRef} className="mt-12 space-y-4 mb-4">
+          <h1 className="text-4xl font-semibold">My Social Links</h1>
+          <div className="flex flex-col space-y-4 md:flex-row md:space-x-4">
+            <Flex gap="5" direction={{ initial: "column", md: "row" }}>
+              <Badge color="red" size="3">
                 Codeforces
-              </div>
-              <div className="text-3xl bg-violet-600 text-white w-full rounded-4xl p-2">
+              </Badge>
+              <Badge color="brown" size="3">
                 Codechef
-              </div>
-              <div className="text-3xl bg-violet-600 text-white w-full rounded-4xl p-2">
-                GitHub
-              </div>
-              <div className="text-3xl bg-violet-600 text-white w-full rounded-4xl p-2">
+              </Badge>
+              <Badge color="blue" size="3">
                 LinkedIn
-              </div>
-            </div>
+              </Badge>
+              <Badge color="black" size="3">
+                GitHub
+              </Badge>
+            </Flex>
           </div>
         </div>
       </div>
